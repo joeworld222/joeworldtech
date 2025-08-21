@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Joe World Tech</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111722;--text:#e6f1ff;--muted:#93a4b7;--acc:#00e5a8;--acc2:#18a0fb}
+  :root.light{--bg:#f6f8fb;--panel:#fff;--text:#0e1220;--muted:#52607a;--acc:#0bbf88;--acc2:#0b7bd3}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2)} .nav{position:sticky;top:0;background:var(--panel);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .row{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+  .sp{flex:1}.toggle{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;transition:.25s}
+  .card:hover{transform:translateY(-4px)}
+  .thumb{height:160px;background-size:cover;background-position:center}
+  .content{padding:14px}
+  .btn{display:inline-block;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--acc);color:#041015;font-weight:800}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a href="index.html">⬅ Home</a>
+  <a href="tutorials.html">Tutorials</a>
+  <div class="sp"></div><button id="t" class="toggle">Theme</button>
+</div></nav>
+
+<main class="wrap">
+  <h1>Projects</h1>
+  <section class="grid">
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop')"></div>
+      <div class="content">
+        <h3>Theme Toggle Component</h3>
+        <p class="muted">Build a reusable dark/light toggle that saves preference.</p>
+        <a class="btn" href="#challenges">View challenge →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop')"></div>
+      <div class="content">
+        <h3>Responsive Grid Gallery</h3>
+        <p class="muted">Create a gallery with CSS Grid + hover animations.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop')"></div>
+      <div class="content">
+        <h3>Fetch API Dashboard</h3>
+        <p class="muted">Pull data from an API and render cards.</p>
+      </div>
+    </article>
+  </section>
+
+  <h2 id="challenges">Mini Challenges</h2>
+  <pre><code>/* 1) Build a toggle button
+ * 2) Save theme to localStorage
+ * 3) Animate with CSS keyframes */</code></pre>
+</main>
+
+<script>
+  const r=document.documentElement,key="jwt-theme";
+  function set(t){r.classList.toggle('light',t==='light');localStorage.setItem(key,t)}
+  set(localStorage.getItem(key)||'dark');
+  document.getElementById('t').onclick=()=>set(r.classList.contains('light')?'dark':'light');
+</script>
+</body></html>

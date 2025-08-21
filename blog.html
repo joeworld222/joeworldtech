@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — Joe World Tech</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111722;--text:#e6f1ff;--muted:#93a4b7;--acc:#00e5a8;--acc2:#18a0fb}
+  :root.light{--bg:#f6f8fb;--panel:#fff;--text:#0e1220;--muted:#52607a;--acc:#0bbf88;--acc2:#0b7bd3}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2)} .nav{position:sticky;top:0;background:var(--panel);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .row{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+  .sp{flex:1}.toggle{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+  .post{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;margin-bottom:16px}
+  .muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a href="index.html">⬅ Home</a>
+  <a href="tutorials.html">Tutorials</a>
+  <div class="sp"></div><button id="t" class="toggle">Theme</button>
+</div></nav>
+
+<main class="wrap">
+  <article class="post">
+    <h2>How to Learn Web Dev Fast (Without Burning Out)</h2>
+    <p class="muted">Posted by Joe World • 6 min read</p>
+    <p>Start with HTML structure, then master CSS layout (Flexbox + Grid), then pick modern JavaScript essentials. Build tiny projects daily. <em>Consistency</em> over intensity. Tebiwunya! 💪</p>
+  </article>
+  <article class="post">
+    <h2>Dark Mode Design Tips</h2>
+    <p class="muted">5 min read</p>
+    <ul>
+      <li>Prefer deep blues over pure black for backgrounds.</li>
+      <li>Use saturated accents sparingly (we use teal + cyan).</li>
+      <li>Increase contrast & font weight slightly.</li>
+      <li>Add gentle glows for depth—not too much.</li>
+    </ul>
+  </article>
+</main>
+
+<script>
+  const r=document.documentElement,key="jwt-theme";
+  function set(t){r.classList.toggle('light',t==='light');localStorage.setItem(key,t)}
+  set(localStorage.getItem(key)||'dark');
+  document.getElementById('t').onclick=()=>set(r.classList.contains('light')?'dark':'light');
+</script>
+</body></html>

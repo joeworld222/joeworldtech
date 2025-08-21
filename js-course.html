@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JavaScript Course — Joe World Tech</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111722;--text:#e6f1ff;--muted:#93a4b7;--acc:#00e5a8;--acc2:#18a0fb}
+  :root.light{--bg:#f6f8fb;--panel:#fff;--text:#0e1220;--muted:#52607a;--acc:#0bbf88;--acc2:#0b7bd3}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2)} .nav{position:sticky;top:0;background:var(--panel);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .row{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+  .sp{flex:1}.toggle{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
+  .lesson{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+  pre{background:#0e1420;color:#cfe8ff;border-radius:10px;padding:10px;display:block;overflow:auto;border:1px solid rgba(255,255,255,.08)}
+  .play{padding:10px 12px;border-radius:10px;background:var(--acc);color:#041015;font-weight:800;border:0}
+  .out{background:#0e1420;padding:10px;border-radius:10px;min-height:46px}
+  :root.light .out{background:#eef4ff;color:#0e1220}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a href="tutorials.html">⬅ Tutorials</a>
+  <a href="#dom">DOM</a><a href="#fetch">Fetch</a><a href="#events">Events</a>
+  <div class="sp"></div><button id="t" class="toggle">Theme</button>
+</div></nav>
+
+<main class="wrap">
+  <section id="dom" class="lesson">
+    <h2>Document Object Model (DOM)</h2>
+    <pre><code>const box = document.querySelector('#box');
+box.textContent = 'Hello Joe!';
+box.addEventListener('click', () => box.classList.toggle('spin'));</code></pre>
+    <button class="play" onclick="demoDOM()">Run</button>
+    <div id="box" class="out">Click run to inject content…</div>
+  </section>
+
+  <section id="fetch" class="lesson">
+    <h2>Fetch API</h2>
+    <pre><code>async function getUsers(){
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await res.json();
+  return data.map(u => u.name);
+}</code></pre>
+    <button class="play" onclick="demoFetch()">Get Users</button>
+    <div id="users" class="out"></div>
+  </section>
+
+  <section id="events" class="lesson">
+    <h2>Events</h2>
+    <pre><code>document.addEventListener('keydown', (e)=>{
+  if(e.key==='j') alert('Joe mode activated!');
+});</code></pre>
+  </section>
+</main>
+
+<script>
+  const r=document.documentElement,key="jwt-theme";
+  function set(t){r.classList.toggle('light',t==='light');localStorage.setItem(key,t)}
+  set(localStorage.getItem(key)||'dark');
+  document.getElementById('t').onclick=()=>set(r.classList.contains('light')?'dark':'light');
+
+  function demoDOM(){
+    const box=document.getElementById('box');
+    box.textContent='Hello Joe! Click me to spin 😈';
+    box.style.border='1px solid rgba(255,255,255,.15)';
+    box.style.display='grid';box.style.placeItems='center';
+    box.style.transition='transform .5s';box.onclick=()=>box.style.transform=box.style.transform?'':'rotate(8deg) scale(1.03)';
+  }
+  async function demoFetch(){
+    const out=document.getElementById('users');
+    out.textContent='Loading…';
+    const res=await fetch('https://jsonplaceholder.typicode.com/users');
+    const data=await res.json();
+    out.innerHTML='<ul>'+data.map(u=>`<li>${u.name}</li>`).join('')+'</ul>';
+  }
+</script>
+</body></html>

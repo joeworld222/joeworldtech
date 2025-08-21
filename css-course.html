@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSS Course — Joe World Tech</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111722;--text:#e6f1ff;--muted:#93a4b7;--acc:#00e5a8;--acc2:#18a0fb}
+  :root.light{--bg:#f6f8fb;--panel:#fff;--text:#0e1220;--muted:#52607a;--acc:#0bbf88;--acc2:#0b7bd3}
+  *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2)} .nav{position:sticky;top:0;background:var(--panel);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .row{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+  .sp{flex:1}.toggle{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+  .wrap{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
+  .lesson{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px}
+  pre,code{background:#0e1420;color:#cfe8ff;border-radius:10px;padding:10px;display:block;overflow:auto;border:1px solid rgba(255,255,255,.08)}
+  .demo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:900px){.demo{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="row">
+  <a href="tutorials.html">⬅ Tutorials</a>
+  <a href="#selectors">Selectors</a>
+  <a href="#layout">Layout</a>
+  <a href="#anim">Animation</a>
+  <div class="sp"></div><button id="t" class="toggle">Theme</button>
+</div></nav>
+
+<main class="wrap">
+  <section id="selectors" class="lesson">
+    <h2>Selectors & Specificity</h2>
+    <div class="demo">
+      <pre><code>.card{ padding:16px; border-radius:16px; }
+.card:hover{ transform: translateY(-4px); }
+.card h3{ color:#00e5a8 }</code></pre>
+      <div>
+        <div class="card" style="background:#131a28;border:1px solid rgba(255,255,255,.1)">
+          <h3>Hover me</h3>
+          <p class="muted">Selectors target elements by tag, class, id, etc.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layout" class="lesson">
+    <h2>Flex & Grid</h2>
+    <pre><code>.grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px;}</code></pre>
+    <div class="grid">
+      <div class="card" style="background:#131a28;border:1px solid rgba(255,255,255,.1)">A</div>
+      <div class="card" style="background:#131a28;border:1px solid rgba(255,255,255,.1)">B</div>
+      <div class="card" style="background:#131a28;border:1px solid rgba(255,255,255,.1)">C</div>
+      <div class="card" style="background:#131a28;border:1px solid rgba(255,255,255,.1)">D</div>
+    </div>
+  </section>
+
+  <section id="anim" class="lesson">
+    <h2>Transitions & Keyframes</h2>
+    <pre><code>@keyframes pulse{ from{box-shadow:none} to{ box-shadow:0 0 24px rgba(0,229,168,.45)} }
+.button{ animation:pulse 1.2s ease-in-out infinite alternate }</code></pre>
+    <button class="button" style="padding:10px 14px;border-radius:12px;background:#00e5a8;color:#041015;font-weight:800;border:0">Glowing Button</button>
+  </section>
+</main>
+
+<script>
+  const r=document.documentElement,key="jwt-theme";
+  function set(t){r.classList.toggle('light',t==='light');localStorage.setItem(key,t)}
+  set(localStorage.getItem(key)||'dark');
+  document.getElementById('t').onclick=()=>set(r.classList.contains('light')?'dark':'light');
+</script>
+</body></html>

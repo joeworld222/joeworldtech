@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JOE WORLD TECH — Home</title>
+<link rel="icon" href="https://fav.farm/🔥" />
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#111722; --text:#e6f1ff; --muted:#93a4b7;
+    --acc:#00e5a8; --acc2:#18a0fb; --danger:#ff3b6b; --glow:0 0 30px rgba(0,229,168,.35);
+  }
+  :root.light{
+    --bg:#f6f8fb; --panel:#ffffff; --text:#0e1220; --muted:#52607a;
+    --acc:#0bbf88; --acc2:#0b7bd3; --danger:#e1325e; --glow:0 0 0 rgba(0,0,0,0);
+  }
+  *{box-sizing:border-box}html,body{margin:0;height:100%;scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2);text-decoration:none}
+  img{max-width:100%;display:block}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(0,0,0,.5),transparent),var(--panel);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav-inner{max-width:1200px;margin:auto;display:flex;align-items:center;gap:16px;padding:12px 16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+  .logo svg{width:38px;height:38px;filter:drop-shadow(0 0 18px rgba(24,160,251,.35))}
+  .nav a{padding:8px 10px;border-radius:10px;opacity:.9}
+  .nav a:hover{background:rgba(24,160,251,.1)}
+  .spacer{flex:1}
+  .toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);cursor:pointer;border:1px solid rgba(255,255,255,.08)}
+  .dot{width:16px;height:16px;border-radius:50%;background:var(--acc);box-shadow:var(--glow)}
+  /* HERO */
+  .hero{position:relative;min-height:86vh;display:grid;place-items:center;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;background:
+      radial-gradient(60% 60% at 80% 20%, rgba(24,160,251,.15), transparent 60%),
+      radial-gradient(60% 60% at 20% 80%, rgba(0,229,168,.15), transparent 60%),
+      url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover; background-position:center; filter:brightness(.6) saturate(1.1);
+    transform:scale(1.08);
+  }
+  .card{position:relative;z-index:2;background:rgba(17,23,34,.75);border:1px solid rgba(255,255,255,.08);padding:28px;border-radius:22px;backdrop-filter:blur(6px);max-width:980px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  :root.light .card{background:rgba(255,255,255,.85);border-color:#e9eef5}
+  .title{font-size:clamp(28px,4.2vw,54px);line-height:1.05;margin:0 0 10px}
+  .title span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+  .btn{padding:12px 16px;border-radius:12px;border:1px solid transparent;background:var(--acc);color:#041015;font-weight:700;box-shadow:var(--glow);transition:.25s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--text);border-color:rgba(255,255,255,.16)}
+  .grid{max-width:1200px;margin:60px auto;display:grid;gap:16px;padding:0 16px;grid-template-columns:repeat(12,1fr)}
+  .feature{grid-column:span 12;background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px;display:flex;gap:16px;align-items:center;transition:transform .25s}
+  .feature:hover{transform:translateY(-3px)}
+  .feature .emoji{font-size:30px}
+  .feature h3{margin:0 0 6px}
+  .two-6 .feature{grid-column:span 6}
+  @media (max-width:900px){.two-6 .feature{grid-column:span 12}}
+  /* footer */
+  footer{border-top:1px solid rgba(255,255,255,.08);padding:24px;color:var(--muted);text-align:center;background:var(--panel)}
+  /* reveal anim */
+  .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.65,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html" aria-label="JOE WORLD TECH">
+      <!-- Inline neon logo (works without external image) -->
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <circle cx="32" cy="32" r="28" stroke="#18a0fb" stroke-width="3"/>
+        <path d="M8 40c6-10 16-14 24-14s14 2 24 10" stroke="#00e5a8" stroke-width="3" />
+        <circle cx="48" cy="18" r="3" fill="#18a0fb"/>
+      </svg>
+      <span>JOE WORLD <span style="color:var(--acc2)">TECH</span></span>
+    </a>
+    <a href="about.html">About</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="videos.html">Videos</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+    <div class="spacer"></div>
+    <button id="themeToggle" class="toggle" aria-label="Toggle theme">
+      <div class="dot"></div><span>Theme</span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="card reveal">
+    <h1 class="title">Level up your web skills with <span>JOE WORLD TECH</span> 🚀</h1>
+    <p class="sub">Interactive tutorials for <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b> with code examples, animations, and real videos. Dark by default—because we’re hackers with manners 😎.</p>
+    <div class="cta">
+      <a class="btn" href="tutorials.html">Start Learning</a>
+      <a class="btn ghost" href="projects.html">See Projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="grid two-6">
+  <article class="feature reveal">
+    <div class="emoji">💡</div>
+    <div><h3>Hands-on Lessons</h3><p class="sub">Short, tasty lessons with live code blocks you can copy and tweak.</p></div>
+  </article>
+  <article class="feature reveal">
+    <div class="emoji">🎥</div>
+    <div><h3>Real Videos</h3><p class="sub">Curated YouTube embeds to reinforce concepts without fluff.</p></div>
+  </article>
+  <article class="feature reveal">
+    <div class="emoji">🕶️</div>
+    <div><h3>Dark / Light</h3><p class="sub">Beautiful neon dark theme with a slick toggle & local save.</p></div>
+  </article>
+  <article class="feature reveal">
+    <div class="emoji">⚡</div>
+    <div><h3>Smooth Animations</h3><p class="sub">Subtle transitions and scroll-reveal for that premium feel.</p></div>
+  </article>
+</section>
+
+<footer>© <span id="year"></span> Joe World Tech • Built with love, caffeine & JavaScript.</footer>
+
+<script>
+  // Theme
+  const root=document.documentElement, key="jwt-theme";
+  function applyTheme(t){root.classList.toggle('light', t==='light');localStorage.setItem(key,t)}
+  function initTheme(){applyTheme(localStorage.getItem(key)||'dark')}
+  initTheme();
+  document.getElementById('themeToggle').onclick=()=>applyTheme(root.classList.contains('light')?'dark':'light');
+
+  // Reveal on scroll
+  const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),
+    {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Year
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

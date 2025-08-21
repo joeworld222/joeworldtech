@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About — Joe World Tech</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111722;--text:#e6f1ff;--muted:#93a4b7;--acc:#00e5a8;--acc2:#18a0fb}
+  :root.light{--bg:#f6f8fb;--panel:#fff;--text:#0e1220;--muted:#52607a;--acc:#0bbf88;--acc2:#0b7bd3}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+  a{color:var(--acc2);text-decoration:none}
+  .nav{position:sticky;top:0;background:var(--panel);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .row{max-width:1100px;margin:auto;display:flex;gap:14px;align-items:center;padding:12px 16px}
+  .sp{flex:1}.toggle{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+  .wrap{max-width:1100px;margin:30px auto;padding:0 16px;display:grid;grid-template-columns:340px 1fr;gap:20px}
+  @media(max-width:900px){.wrap{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
+  .title{font-size:clamp(26px,3.5vw,42px);margin:0 0 8px}
+  .muted{color:var(--muted)}
+  .tag{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;background:rgba(24,160,251,.12);color:#bfe3ff;border:1px solid rgba(24,160,251,.25)}
+  :root.light .tag{background:#ebf5ff;color:#0b5aa6;border-color:#cde7ff}
+  .list{display:grid;gap:12px}
+  .list li{background:var(--panel);padding:14px;border-radius:14px;border:1px solid rgba(255,255,255,.08)}
+  .photo{border-radius:14px;overflow:hidden}
+  .photo img{width:100%;height:auto;display:block}
+  .cta{display:flex;gap:10px;margin-top:10px}
+  .btn{padding:10px 14px;border-radius:10px;background:var(--acc);color:#041015;border:0;font-weight:700}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="row">
+    <a href="index.html">⬅ Home</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="projects.html">Projects</a>
+    <a href="blog.html">Blog</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+    <div class="sp"></div>
+    <button id="t" class="toggle">Theme</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <aside class="card">
+    <div class="photo">
+      <!-- Replace the src with your uploaded photo path when ready -->
+      <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Coding neon" />
+    </div>
+    <div class="cta">
+      <a class="btn" href="videos.html">Watch Videos</a>
+      <a class="btn ghost" href="contact.html">Hire Joe</a>
+    </div>
+    <p class="muted" style="margin-top:8px;">Tip: Replace the image above with your real logo/photo later.</p>
+  </aside>
+
+  <section class="card">
+    <h1 class="title">Meet <span style="background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;color:transparent">Joe World 🌍</span></h1>
+    <p class="muted">Programmer • Web master • IT wizard • Teacher (English + Luganda spice) • Builder of fun, stubborn, stupid-funny but real tutorials.</p>
+    <p>I run <b>Joe World Tech</b>, a neon-dark academy for learning <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b> through playful lessons, animations, and project-based learning. Ndikuyamba okuzimba amaanyi mu web dev—step by step—okutuuka ku production level. 💪</p>
+
+    <h3>What you’ll get here</h3>
+    <ul class="list">
+      <li>Short, practical lessons with code you can paste and run.</li>
+      <li>Videos that explain concepts fast—no boring lectures.</li>
+      <li>Projects you can show off to clients or employers.</li>
+      <li>Community vibe—reach out via Telegram or email on the Contact page.</li>
+    </ul>
+
+    <h3>Tech I enjoy</h3>
+    <div>
+      <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+      <span class="tag">Tailwind vibe</span><span class="tag">APIs</span><span class="tag">Node basics</span>
+    </div>
+  </section>
+</main>
+
+<script>
+  const r=document.documentElement, key="jwt-theme";
+  function set(t){r.classList.toggle('light',t==='light');localStorage.setItem(key,t)}
+  set(localStorage.getItem(key)||'dark');
+  document.getElementById('t').onclick=()=>set(r.classList.contains('light')?'dark':'light');
+</script>
+</body>
+</html>
